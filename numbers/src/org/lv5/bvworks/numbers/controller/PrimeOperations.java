@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/prime")
+@RequestMapping("/api/prime")
 public class PrimeOperations {
 	
 	@RequestMapping(value = "/numbers", method = RequestMethod.GET)
@@ -49,7 +49,7 @@ public class PrimeOperations {
 	private boolean isPrime(int number) {
 		// simple algorithm
 		int divisibleCount = 0;
-		for (int i=number; i > 0 && divisibleCount < 3; i--) {
+		for (int i=1; i <= number && divisibleCount < 3; i++) {
 			if (number % i == 0) {
 				divisibleCount++;
 			}
@@ -61,7 +61,7 @@ public class PrimeOperations {
 	private int[] listPrimeNumbers(int count) {
 		int[] result = new int[count];
 		int i = 0;
-		int number = 3;
+		int number = 2;
 		while (i < count) {
 			if (isPrime(number)) {
 				result[i] = number;
