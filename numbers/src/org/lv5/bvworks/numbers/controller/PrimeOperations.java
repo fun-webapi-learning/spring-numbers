@@ -47,27 +47,28 @@ public class PrimeOperations {
 	}
 	
 	private boolean isPrime(int number) {
-		// simple algorithm
-		int divisibleCount = 0;
-		for (int i=1; i <= number && divisibleCount < 3; i++) {
+		if (number <= 1) {
+			return false;
+		}
+		for (int i=2; i <= Math.sqrt(number); i++) {
 			if (number % i == 0) {
-				divisibleCount++;
+				return false;
 			}
 		}
-		
-		return (divisibleCount == 2);
+		return true;
 	}
 	
 	private int[] listPrimeNumbers(int count) {
 		int[] result = new int[count];
-		int i = 0;
-		int number = 2;
+		result[0] = 2;
+		int i = 1;
+		int number = 3;
 		while (i < count) {
 			if (isPrime(number)) {
 				result[i] = number;
 				i++;
 			}
-			number++;
+			number += 2;
 		}
 		return result;
 	}
