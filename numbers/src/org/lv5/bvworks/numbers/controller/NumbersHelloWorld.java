@@ -6,7 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class NumbersHelloWorld {
-	
+
 	@RequestMapping("/welcome")
 	public ModelAndView helloWorld() {
 		String message = "<br><div style='text-align:center;'>"
