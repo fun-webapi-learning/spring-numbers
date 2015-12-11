@@ -2,6 +2,7 @@ package org.lv5.bvworks.numbers.controller;
 
 import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -58,13 +59,22 @@ public class PrimeOperations {
 		return true;
 	}
 	
+	private boolean primeDivisibleByAny(int dividend, int[] divisors, int size) {
+		for (int i=0; i<size && divisors[i] <= Math.sqrt(dividend); i++) {
+			if (dividend % divisors[i] == 0) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	private int[] listPrimeNumbers(int count) {
 		int[] result = new int[count];
 		result[0] = 2;
 		int i = 1;
 		int number = 3;
 		while (i < count) {
-			if (isPrime(number)) {
+			if (!primeDivisibleByAny(number, result, i)) {
 				result[i] = number;
 				i++;
 			}
