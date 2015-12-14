@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/prime")
+@RequestMapping("/prime")
 public class PrimeOperationsController {
 
 	@RequestMapping(value = "/numbers", method = RequestMethod.GET)
