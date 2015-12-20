@@ -1,22 +1,20 @@
+<%@page import="java.io.*,java.util.*" %>
+
 <html>
 <head>
-<title>Spring MVC Tutorial Series by Crunchify.com</title>
-<style type="text/css">
-body {
-	background-image: url('http://crunchify.com/bg.png');
-}
-</style>
+<title>Spring MVC Tutorial by Crunchify - Hello World Spring MVC
+	Example</title>
 </head>
 <body>
-	<br>
-	<div style="text-align:center">
-		<h2>
-			Hey You..!! This is your 1st Spring MCV Tutorial..<br> <br>
-		</h2>
-		<h3>
-			<a href="welcome.html">Click here to See Welcome Message... </a>(to
-			check Spring MVC Controller... @RequestMapping("/welcome"))
-		</h3>
-	</div>
+<%
+
+String url = request.getRequestURL().toString();
+String baseUrl = url.substring(0, url.length() - request.getRequestURL().length()) + request.getContextPath() + "/";
+
+String redirectUrl = baseUrl + "home.jsp";
+response.setStatus(response.SC_MOVED_TEMPORARILY);
+response.setHeader("Location", redirectUrl);
+
+%>
 </body>
 </html>
