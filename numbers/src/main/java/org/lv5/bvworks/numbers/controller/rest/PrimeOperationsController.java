@@ -59,7 +59,7 @@ public class PrimeOperationsController {
 		return output;
 	}
 
-	private boolean isPrime(int number) {
+	public boolean isPrime(int number) {
 		if (number <= 1) {
 			return false;
 		}
@@ -71,7 +71,7 @@ public class PrimeOperationsController {
 		return true;
 	}
 
-	private boolean primeDivisibleByAny(int dividend, int[] divisors, int size) {
+	public boolean primeDivisibleByAny(int dividend, int[] divisors, int size) {
 		for (int i = 0; i < size && divisors[i] <= Math.sqrt(dividend); i++) {
 			if (dividend % divisors[i] == 0) {
 				return true;
@@ -80,7 +80,7 @@ public class PrimeOperationsController {
 		return false;
 	}
 
-	private int[] listPrimeNumbers(int count) {
+	public int[] listPrimeNumbers(int count) {
 		int[] result = new int[count];
 		result[0] = 2;
 		int i = 1;
