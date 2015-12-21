@@ -66,6 +66,7 @@ public class PrimeOperationsController {
 		if (number % 2 == 0 && number > 2) {
 			return false;
 		}
+		
 		for (int i = 3; i <= Math.sqrt(number); i += 2) {
 			if (number % i == 0) {
 				return false;
@@ -89,12 +90,19 @@ public class PrimeOperationsController {
 		result[0] = 2;
 		int i = 1;
 		int number = 3;
+		//int gap = 2;
 		while (i < count) {
 			if (!primeDivisibleByAny(number, result, i)) {
 				result[i] = number;
 				i++;
+				double predicted_gap = (Math.log(number) * Math.log(Math.log(number)) * Math.log(Math.log(Math.log(Math.log(number)))))
+						/ Math.log(Math.log(Math.log(number)));
+				number += Math.max(1, (int)predicted_gap);
+				
+			} else {
+				number += (number % 2 == 0 ? 1 : 2);
 			}
-			number += 2;
+			//number += 2;
 		}
 		return result;
 	}

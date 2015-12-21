@@ -58,7 +58,7 @@ public class PrimeOperationsControllerTest {
 			while (rs.next()) {
 				int number = rs.getInt("number");
 				int prime = rs.getInt("prime");
-				assertEquals(primes[number-1], prime);
+				assertEquals(prime, primes[number-1]);
 			}
 			stmt.close();
 		} catch (SQLException e) {
@@ -98,7 +98,6 @@ public class PrimeOperationsControllerTest {
 			for (int i=0; i<primes.get(primes.size()-1); i++) {
 				if (primes.contains(i))
 					continue;
-				System.out.println("is " + i + " prime?");
 				assertFalse(controller.isPrime(i));
 			}
 		} catch (SQLException e) {
