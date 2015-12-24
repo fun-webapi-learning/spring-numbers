@@ -95,8 +95,7 @@ public class PrimeOperationsController {
 			if (!primeDivisibleByAny(number, result, i)) {
 				result[i] = number;
 				i++;
-				double predicted_gap = (Math.log(number) * Math.log(Math.log(number)) * Math.log(Math.log(Math.log(Math.log(number)))))
-						/ Math.log(Math.log(Math.log(number)));
+				double predicted_gap = 0; // Math.log(number);
 				number += Math.max(1, (int)predicted_gap);
 				
 			} else {
